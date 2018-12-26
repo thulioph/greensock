@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>TweenMax.staggerFrom()</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">TweenMax.staggerFrom()</h1>
+
+    <pre>permite controlar o final da animação entre diversos elementos, permite o encadeamento de animações.<br /><b>só funciona com lista</b>.</pre>
+
+    <ul id="tweenmax-staggerFrom">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const items = document.querySelectorAll('#tweenmax-staggerFrom li');
+
+    TweenMax.staggerFrom(items, .5, {
+      scale: 0,
+      opacity: 0,
+      ease: Bounce.easeOut,
+    }, .3);
+  </script>
+</body>
+
+</html>

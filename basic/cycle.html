@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Cycle</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Cycle</h1>
+
+    <pre>possibilita a criação de um ciclo de propriedade entre os elementos.<br /><b>só funciona com stagger</b>.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const items = document.querySelectorAll('#list li');
+
+    TweenMax.staggerTo(items, 1, {
+      ease: Bounce.easeOut,
+      cycle: {
+        // opacity: [0, 1], // aceita um array com o index de cada item
+        x: (index, target) => index * 20,
+      }
+    }, .3)
+  </script>
+</body>
+
+</html>

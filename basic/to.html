@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>TweenMax.to()</title>
+</head>
+<body>
+  <section>
+    <h1 id="title">Tweenmax.to()</h1>
+
+    <pre>determina o estado que o elemento vai pro final.</pre>
+  
+    <ul id="tweenmax-to">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const items = document.querySelectorAll('#tweenmax-to li');
+
+    TweenMax.to(title, 1, {
+      rotation: 360,
+    });
+
+    TweenMax.to(items, 2, {
+      x: 140,
+    });
+  </script>
+</body>
+</html>

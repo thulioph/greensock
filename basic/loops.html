@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Repeat and YoYo</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Repeat and YoYo</h1>
+
+    <pre>possibilita a criação de loops, fazendo a animação se repetir.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const items = document.querySelectorAll('#list li');
+
+    TweenMax.fromTo(title, 1, {
+      x: -100,
+    }, {
+      x: 400,
+      repeat: -1, // -1 é o valor para repetir a animação de maneira infinita
+      yoyo: true, // permite com que a animação vá e volte, tipo um ioio
+    });
+
+    TweenMax.staggerFrom(items, .5, {
+      scale: 0,
+      repeat: -1,
+      yoyo: true,
+    }, .5);
+  </script>
+</body>
+
+</html>

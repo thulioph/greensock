@@ -1,0 +1,11 @@
+{
+  "name": "greensock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "browser-sync start --server --watch"
+  },
+  "author": "Thulio Philipe <thulioph@gmail.com>",
+  "license": "MIT"
+}

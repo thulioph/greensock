@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>TweenMax.staggerFromTo()</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">TweenMax.staggerFromTo()</h1>
+
+    <pre>permite a combinação do `stagger` com `from` e com o `to`.<br /><b>só funciona com lista</b>.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const items = document.querySelectorAll('#list li');
+
+    TweenMax.staggerFromTo(items, .5, {
+      x: 100,
+      scale: .3,
+      opacity: 0,
+    }, {
+      x: 200,
+      scale: 1.1,
+      opacity: 1,
+    }, .3);
+  </script>
+</body>
+
+</html>

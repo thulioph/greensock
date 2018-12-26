@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>TweenMax.from()</title>
+</head>
+<body>
+  <section>
+    <h1 id="title">Tweenmax.from()</h1>
+
+    <pre>determina as propriedade do início, propriedades de quando começa a animação.</pre>
+  
+    <ul id="tweenmax-from">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const items = document.querySelectorAll('#tweenmax-from li');
+
+    TweenMax.from(title, 2, {
+      scale: 0,
+    });
+
+    TweenMax.from(items, 2, {
+      y: 200,
+      x: 5,
+    });
+  </script>
+</body>
+</html>
