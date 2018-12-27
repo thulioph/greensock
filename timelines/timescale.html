@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Timeline Methods</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Timeline Methods</h1>
+
+    <pre>permite alterar a escala de uma timeline, alterando o tempo em que ela vai ocorrer.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+
+    <div>
+      <button id="fast">Fast</button>
+      <button id="slow">Slow</button>
+      <button id="normal">Normal</button>
+      <button id="restart">Restart</button>
+    </div>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const pre = document.querySelectorAll('pre');
+    const items = document.querySelectorAll('#list li');
+
+    const btnFast = document.querySelector('#fast');
+    const btnSlow = document.querySelector('#slow');
+    const btnNormal = document.querySelector('#normal');
+    const btnRestart = document.querySelector('#restart');
+
+    const tl = new TimelineMax({ paused: true });
+
+    tl.from(title, 1, {
+      y: -300,
+      opacity: 0,
+    })
+    .from(pre, .5, {
+      x: -300,
+      opacity: 0,
+    })
+    .staggerFrom(items, .5, {
+      x: -500,
+      opacity: 0,
+    });
+
+    btnFast.addEventListener('click', () => {
+      tl.timeScale(5); // 5x fast
+      tl.play();
+    });
+
+    btnSlow.addEventListener('click', () => {
+      tl.timeScale(2/10); // 0 until 1
+      tl.play();
+    });
+
+    btnNormal.addEventListener('click', () => {
+      tl.timeScale(1); // normal velocity (1)
+      tl.play();
+    });
+
+    btnRestart.addEventListener('click', () => tl.restart());
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Timeline Chaining</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Timeline Chaining</h1>
+
+    <pre>permite a execução de animações sequenciais, uma após a outra.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const pre = document.querySelectorAll('pre');
+    const items = document.querySelectorAll('#list li');
+
+    // sem timeline - utiliza o TweenMax
+    // TweenMax.from(title, 1, {
+    //   y: -300,
+    //   opacity: 0,
+    // });
+
+    // TweenMax.from(pre, .5, {
+    //   x: -300,
+    //   opacity: 0,
+    // });
+
+    // TweenMax.staggerFrom(items, 1, {
+    //   x: -500,
+    //   opacity: 0,
+    // }, .3);
+
+    // com timeline - tl.from().from()...
+    const tl = new TimelineMax();
+
+    tl.from(title, 1, {
+      y: -300,
+      opacity: 0,
+    });
+
+    tl.from(pre, .5, {
+      x: -300,
+      opacity: 0,
+    });
+
+    tl.staggerFrom(items, .5, {
+      x: -500,
+      opacity: 0,
+    }, .3);
+  </script>
+</body>
+
+</html>
