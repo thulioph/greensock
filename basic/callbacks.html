@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Callbacks</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Callbacks</h1>
+
+    <pre>funções que são executadas após algumas etapas da animação.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+
+    <p class="paragraph"></p>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const items = document.querySelectorAll('#list li');
+    const paragraph = document.querySelector('.paragraph');
+
+    const changeText = (msg) => paragraph.innerHTML = msg;
+
+    TweenMax.to(title, 1, {
+      x: 600,
+      repeat: 1,
+      onStart: () => changeText('A animação começou!'),
+      // onUpdate: () => changeText('A animação está acontecendo!'),
+      onComplete: () => {
+        TweenMax.to(items, .5, { opacity: 0 });
+        changeText('A animação acabou!');
+      },
+      onRepeat: () => changeText('A animação repetiu!'),
+    });
+  </script>
+</body>
+
+</html>
