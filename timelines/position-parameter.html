@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Timeline Position - Parameter</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Timeline Position - Parameter</h1>
+
+    <pre>permite alterar a velocidade e ordem de animações <b>funciona com timelines</b>.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const pre = document.querySelectorAll('pre');
+    const items = document.querySelectorAll('#list li');
+
+    const tl = new TimelineMax();
+
+    tl.from(title, 1, {
+      y: -300,
+      opacity: 0,
+    }, 3) // position absolute (se sobrepõe a todos os outros)
+    .from(pre, .5, {
+      x: -300,
+      opacity: 0,
+    }, '+=1') // delay - conhecido como `positive relative` (acontece 1s depois)
+    .staggerFrom(items, .5, {
+      x: -500,
+      opacity: 0,
+    }, .3, '-=1'); // overlap - passar por cima ou acontece junto (acontece 1s antes)
+  </script>
+</body>
+
+</html>

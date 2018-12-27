@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/main.css">
+  <title>Timeline Methods</title>
+</head>
+
+<body>
+  <section>
+    <h1 id="title">Timeline Methods</h1>
+
+    <pre>permite controlar o estado da timeline utilizando uma API.</pre>
+
+    <ul id="list">
+      <li>Item 01</li>
+      <li>Item 02</li>
+      <li>Item 03</li>
+      <li>Item 04</li>
+    </ul>
+
+    <div>
+      <button id="play">Play</button>
+      <button id="pause">Pause</button>
+      <button id="resume">Resume</button>
+      <button id="reverse">Reverse</button>
+      <button id="restart">Restart</button>
+    </div>
+  </section>
+
+  <!-- complete version -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const title = document.querySelector('#title');
+    const pre = document.querySelectorAll('pre');
+    const items = document.querySelectorAll('#list li');
+
+    const btnPlay = document.querySelector('#play');
+    const btnPause = document.querySelector('#pause');
+    const btnResume = document.querySelector('#resume');
+    const btnReverse = document.querySelector('#reverse');
+    const btnRestart = document.querySelector('#restart');
+
+    const tl = new TimelineMax({ paused: true });
+
+    tl.from(title, 1, {
+      y: -300,
+      opacity: 0,
+    })
+    .from(pre, .5, {
+      x: -300,
+      opacity: 0,
+    }, '+=1') // delay - conhecido como `positive relative` (acontece 1s depois)
+    .staggerFrom(items, .5, {
+      x: -500,
+      opacity: 0,
+    }, .3, '-=1'); // overlap - passar por cima ou acontece junto (acontece 1s antes)
+
+    btnPlay.addEventListener('click', () => tl.play());
+    btnPause.addEventListener('click', () => tl.pause());
+    btnResume.addEventListener('click', () => tl.resume());
+    btnReverse.addEventListener('click', () => tl.reverse());
+    btnRestart.addEventListener('click', () => tl.restart());
+  </script>
+</body>
+
+</html>
