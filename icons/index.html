@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Animated Icons</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      background: #336169;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    section {
+      padding: 0 20px;
+    }
+
+    h1 {
+      margin: 30px 0 0;
+      color: #FFF;
+    }
+
+    small {
+      color: #FFF;
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      display: flex;
+      flex-flow: row;
+      flex-wrap: wrap;
+    }
+
+    li {
+      list-style-type: none;
+      margin: 5px 5px 5px 0;
+      background: #FFFFFF;
+      border: 1px solid transparent;
+
+      transition: all .25s linear;
+    }
+
+    li:hover {
+      border-color: #FFF;
+      background-color: transparent;
+    }
+
+    li:hover a {
+      color: #FFF;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: #123456;
+      display: block;
+      padding: 10px 14px;
+      transition: color .25s linear;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>A set of animated icons</h1>
+    <small>All the animations will start with hover.</small>
+
+    <ul>
+      <li><a href="./clock.html">Clock</a></li>
+      <li><a href="./note.html">Note</a></li>
+      <li><a href="./template.html">Template</a></li>
+      <li><a href="./terminal.html">Terminal</a></li>
+      <li><a href="./terminal02.html">Terminal 02</a></li>
+      <li><a href="./world.html">World</a></li>
+    </ul>
+  </section>
+</body>
+</html>
