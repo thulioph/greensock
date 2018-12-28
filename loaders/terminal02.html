@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loaders - Terminal</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      background: #336169;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    svg {
+      cursor: pointer;
+      width: 220px;
+      height: 224px;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 83 87" aria-labelledby="title">
+      <title id="title">The icon is a representation of a terminal</title>
+    
+      <g fill="none" fill-rule="evenodd" transform="translate(0 6)">
+        <g id="header">
+          <path fill="#F4F4F4" d="M82.157 13.833H.145V6.001C.145 2.695 3.455 0 7.515 0h67.272c4.06 0 7.37 2.695 7.37 6.001v7.832z"></path>
+    
+          <ellipse cx="25.458" cy="7.519" fill="#72BD60" rx="2.587" ry="2.578"></ellipse>
+          <ellipse cx="16.565" cy="7.519" fill="#F9BE00" rx="2.587" ry="2.578"></ellipse>
+          <ellipse cx="7.672" cy="7.519" fill="#F05B55" rx="2.587" ry="2.578"></ellipse>
+        </g>
+    
+        <g id="terminal" transform="translate(0 14.821)">
+          <path fill="#202A2F" d="M0 0h82.012v51.286a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V0z"></path>
+
+          <g id="lines">
+            <rect width="63.226" height="1" x="7.417" y="7.417" fill="#D8D8D8" stroke="#FFF" opacity=".506" rx=".5"></rect>
+            <rect width="63.226" height="1" x="7.417" y="39.036" fill="#D8D8D8" stroke="#FFF" opacity=".506" rx=".5"></rect>
+            <rect width="42.476" height="1" x="7.417" y="15.321" fill="#D8D8D8" stroke="#FFF" opacity=".506" rx=".5"></rect>
+            <rect width="55.321" height="1" x="7.417" y="23.226" fill="#D8D8D8" stroke="#FFF" opacity=".506" rx=".5"></rect>
+            <rect width="42.476" height="1" x="7.417" y="31.131" fill="#D8D8D8" stroke="#FFF" opacity=".506" rx=".5"></rect>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const lines = document.querySelectorAll('#lines rect');
+    const icon = document.querySelector('#icon');
+
+    const displayCursor = () => {
+      TweenMax.staggerFrom(lines, .2, {
+        x: -50,
+        opacity: 0,
+      }, .1);
+    };
+
+    icon.addEventListener('mouseenter', () => {
+      displayCursor();
+    });
+  </script>
+</body>
+</html>
