@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./icons.css">
+
+  <title>Money</title>
+</head>
+<body>
+  <section>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 83 87" aria-labelledby="title">
+      <title id="title">The icon is a representation of a terminal</title>
+
+      <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.292" transform="translate(2 15)">
+        <g id="notas">
+          <path fill="#9ECF87" stroke="#9ECF87" d="M6.583 53.029h65.834V58H6.583z"></path>
+          <path fill="#94CA7A" stroke="#94CA7A" d="M3.292 48.057h72.416v4.972H3.292z"></path>
+        </g>
+        
+        <g id="cedula">
+          <path fill="#7ABD59" stroke="#7ABD59" d="M0 0h79v47.726H0z"></path>
+          <ellipse cx="39.103" cy="24.225" fill="#619747" stroke="#619747" rx="12.702" ry="17.596"></ellipse>
+          <path stroke="#619747" d="M14.195 41.821h50.61c0-4.859 3.776-8.798 8.435-8.798V15.427c-4.659 0-8.435-3.94-8.435-8.798h-50.61c0 4.859-3.776 8.798-8.435 8.798v17.596c4.659 0 8.435 3.94 8.435 8.798z"></path>
+          <ellipse cx="17.669" cy="24.225" fill="#619747" stroke="#619747" rx="2.382" ry="2.514"></ellipse>
+          <ellipse cx="59.744" cy="24.225" fill="#619747" stroke="#619747" rx="2.382" ry="2.514"></ellipse>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const icon = document.querySelector('#icon');
+    const notas = document.querySelectorAll('#notas path');
+    const cedula = document.querySelector('#cedula');
+
+    const runAnimation = () => {
+      TweenMax.staggerFrom(notas, .4, {
+        y: -30,
+        scale: .8,
+        transformOrigin: 'bottom center',
+      }, .1);
+
+      TweenMax.from(cedula, 1, {
+        scale: .9,
+        transformOrigin: 'center center',
+      });
+    };
+
+    icon.addEventListener('mouseenter', () => {
+      runAnimation();
+    });
+  </script>
+</body>
+</html>

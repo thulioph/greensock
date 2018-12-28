@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./icons.css">
+
+  <title>Template</title>
+
+  <style>
+    #paper {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 83 87" aria-labelledby="title">
+      <title id="title">The icon is a representation of a template</title>
+
+      <g fill="none" fill-rule="evenodd">
+        <g id="paper">
+          <path fill="#F4F4F4" fill-rule="nonzero" d="M3.32 0h76.36C81.514 0 83 1.507 83 3.366v62.268C83 67.494 81.514 69 79.68 69H3.32C1.486 69 0 67.493 0 65.634V3.366C0 1.506 1.486 0 3.32 0z"></path>
+  
+          <g id="image">
+            <rect width="46" height="28" x="5" y="5" fill="#F9BE00" rx="1"></rect>
+            <path fill-rule="nonzero" stroke="#FFF" d="M28 10a9 9 0 1 1 0 18 9 9 0 0 1 0-18z"></path>
+          </g>
+
+          <g id="cards">
+            <rect width="21" height="26" x="5" y="38" fill="#57C4C0" rx="1"></rect>
+            <rect width="21" height="26" x="31" y="38" fill="#57C4C0" rx="1"></rect>
+            <rect width="21" height="26" x="57" y="38" fill="#57C4C0" rx="1"></rect>
+          </g>
+
+          <g id="text">
+            <rect width="23" height="2" x="55" y="5" fill="#D8D8D8" fill-rule="nonzero" rx="1"></rect>
+            <rect width="23" height="2" x="55" y="31" fill="#D8D8D8" fill-rule="nonzero" rx="1"></rect>
+            <rect width="23" height="2" x="55" y="24.5" fill="#D8D8D8" fill-rule="nonzero" rx="1"></rect>
+            <rect width="23" height="2" x="55" y="18" fill="#D8D8D8" fill-rule="nonzero" rx="1"></rect>
+            <rect width="23" height="2" x="55" y="11.5" fill="#D8D8D8" fill-rule="nonzero" rx="1"></rect>
+          </g>
+        </g>
+
+        <g id="pencil">
+          <path fill="#72BD60" fill-rule="nonzero" d="M15 73h52v12H15V73zm-1 0v12L1 79l12.88-6H14zm58 0v12h-4V73h4zm1 0h4.26c3.17 0 5.74 2.686 5.74 6s-2.57 6-5.74 6H73V73z"></path>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const icon = document.querySelector('#icon');
+    const image = document.querySelector('#image');
+    const cards = document.querySelectorAll('#cards rect');
+    const lines = document.querySelectorAll('#text rect');
+
+    const runAnimation = () => {
+      TweenMax.from(image, .5, {
+        x: -100,
+      });
+
+      TweenMax.staggerFrom(cards, .2, {
+        ease: Circ.easeOut,
+        opacity: 0,
+        y: 100,
+      }, .2);
+
+      TweenMax.staggerFrom(lines, .2, {
+        y: -100,
+        opacity: 0,
+      }, .1);
+    };
+
+    icon.addEventListener('mouseenter', () => {
+      runAnimation();
+    });
+  </script>
+</body>
+</html>

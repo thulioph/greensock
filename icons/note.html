@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./icons.css">
+
+  <title>Note</title>
+</head>
+<body>
+  <section>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 83 87" aria-labelledby="title">
+      <title id="title">The icon is a representation of a terminal</title>
+
+      <g fill="none" fill-rule="evenodd">
+        <g id="background">
+          <path fill="#F4F4F4" d="M53.815 11.185h16.42a2.747 2.747 0 0 1 2.737 2.756v70.273a2.746 2.746 0 0 1-2.737 2.756H12.762a2.746 2.746 0 0 1-2.737-2.756V13.94a2.747 2.747 0 0 1 2.737-2.756h16.423"></path>
+        </g>
+
+        <g id="prendedor">
+          <path fill="#FFB933" d="M51.078 8.43s-4.104-.898-4.104-1.377c0-3.047-2.453-5.512-5.474-5.512-3.024 0-5.474 2.465-5.474 5.512 0 .48-4.104 1.376-4.104 1.376a2.747 2.747 0 0 0-2.737 2.756v5.512a2.747 2.747 0 0 0 2.737 2.757h19.156a2.749 2.749 0 0 0 2.737-2.757v-5.512a2.749 2.749 0 0 0-2.737-2.756z"></path>
+        </g>
+
+        <g id="checkboxes">
+          <g transform="translate(15.7 29.302)">
+            <ellipse cx="6.105" cy="6.126" fill="#7ABD59" rx="6.06" ry="6.102"></ellipse>
+            <path fill="#FFF" d="M6.105 9.809l-4.101-4.13 2.142-2.157 1.959 1.973L11.094.47l2.142 2.157z"></path>
+          </g>
+  
+          <g transform="translate(15.7 47.578)">
+            <ellipse cx="6.105" cy="6.156" fill="#7ABD59" rx="6.06" ry="6.102"></ellipse>
+            <path fill="#FFF" d="M6.105 9.84L2.004 5.71l2.142-2.158 1.959 1.973L11.094.5l2.142 2.158z"></path>
+          </g>
+  
+          <g transform="translate(15.7 65.854)">
+            <ellipse cx="6.105" cy="6.187" fill="#7ABD59" rx="6.06" ry="6.102"></ellipse>
+            <path fill="#FFF" d="M6.105 9.87L2.004 5.74l2.142-2.157 1.959 1.972L11.094.532l2.142 2.157z"></path>
+          </g>
+        </g>
+
+        <g id="text">
+          <path fill="#6BC4BF" d="M67.255 33.903h-30.3v-3.051h30.3zM55.135 40.005h-18.18v-3.051h18.18zM46.045 52.21h-9.09v-3.052h9.09zM67.255 52.21h-18.18v-3.052h18.18zM61.195 58.311h-24.24V55.26h24.24zM67.255 70.515h-30.3v-3.05h30.3zM46.045 76.617h-9.09v-3.05h9.09zM58.165 76.617h-9.09v-3.05h9.09z"></path>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const icon = document.querySelector('#icon');
+    const checkboxes = document.querySelectorAll('#checkboxes g');
+    const text = document.querySelector('#text');
+    const background = document.querySelector('#background');
+
+    const runAnimation = () => {
+      TweenMax.staggerFrom(checkboxes, .4, {
+        x: -40,
+        ease: Circ.easeOut,
+      }, .2);
+
+      TweenMax.from(text, 1, {
+        opacity: 0,
+        scale: .8,
+        transformOrigin: 'center center',
+      });
+
+      TweenMax.from(background, .5, {
+        opacity: .7,
+      });
+    };
+
+    icon.addEventListener('mouseenter', () => {
+      runAnimation();
+    });
+  </script>
+</body>
+</html>
