@@ -439,6 +439,8 @@
       onComplete: () => repeatedAnimations(),
     });
 
+    tl.timeScale(1.5);
+
     const runAnimation = () => {
       tl
         .from(bg, .5, { scale: 0, transformOrigin: 'center bottom', })
