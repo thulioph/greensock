@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./icons.css">
+
+  <title>Design</title>
+</head>
+<body>
+  <section>
+    <svg id="icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" width="83px" height="87px" viewBox="0 0 83 87" aria-labelledby="title">
+      <g fill="none" fill-rule="evenodd">
+        <path id="circle" fill="#6BC4BF" d="M58.889 27.444H31.444V54.89C16.287 54.889 4 42.602 4 27.444 4 12.287 16.287 0 31.444 0 46.602 0 58.89 12.287 58.89 27.444z"></path>
+
+        <g id="square">
+          <path fill="#D8D8D8" d="M31.444 27.444H58.89c0 15.158-12.287 27.445-27.445 27.445V27.444z"></path>
+
+          <path d="M58.889 27.444c0 15.158-12.287 27.445-27.445 27.445C16.287 54.889 4 42.602 4 27.444 4 12.287 16.287 0 31.444 0A27.444 27.444 0 0 1 58.89 27.444z"></path>
+
+          <path stroke="#DE5B4B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.111" d="M31.444 54.889V27.444H58.89"></path>
+
+          <path stroke="#6BC4BF" stroke-dasharray="4.222" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.111" d="M59.19 27.444H80V76H58.889M31.444 60.694V55.19"></path>
+        </g>
+
+        <path id="pencil" fill="#F3BD00" d="M47.914 64.75l-23.489.012h-9.261l-2.697-.011L2.337 71.5l10.13 6.75 16.589.01h9.26l9.598-.01zM57.852 71.48a6.921 6.921 0 0 1-6.916 6.916l-1.73.003.018-13.815 1.777.045a6.882 6.882 0 0 1 6.851 6.851z"></path>
+      </g>
+    </svg>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+  <script>
+    const icon = document.querySelector('#icon');
+    const circle = document.querySelector('#circle');
+    const square = document.querySelector('#square');
+    const pencil = document.querySelector('#pencil');
+
+    const runAnimation = () => {
+      TweenMax.from(circle, .5, {
+        opacity: 0,
+        rotation: 360,
+        transformOrigin: 'center center',
+      });
+
+      TweenMax.from(square, .5, {
+        opacity: 0,
+        x: 30,
+      });
+
+      TweenMax.from(pencil, .5, {
+        opacity: 0,
+        y: 20,
+      });
+    };
+
+    runAnimation();
+
+    icon.addEventListener('mouseenter', () => {
+      runAnimation();
+    });
+  </script>
+</body>
+</html>
