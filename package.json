@@ -1,11 +1,13 @@
 {
-  "name": "greensock",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "greensock-animations",
+  "version": "2.0.0",
+  "description": "animations with greensock",
   "scripts": {
-    "server": "browser-sync start --server --watch"
+    "dev": "node_modules/.bin/http-server -d -o --log-ip index.html"
   },
   "author": "Thulio Philipe <thulioph@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
 }
